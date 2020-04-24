@@ -70,3 +70,4 @@ TortoiseGit | [TortoiseGit](https://tortoisegit.org/download/)
 
 ## 7. 许可协议
 版权所有 (c) 熊猫模拟器开发团队 - 根据许可协议 [GNU General Public License v3.0](https://github.com/PandasWS/Pandas/blob/master/LICENSE)
+
