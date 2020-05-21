@@ -192,8 +192,8 @@ struct party_data *inter_party_fromsql(int party_id)
 	int leader_char = 0;
 	struct party_data* p;
 	struct party_member* m;
-	char* data;
-	size_t len;
+	char* data = nullptr;
+	size_t len = 0;
 	int i;
 
 #ifdef NOISY
@@ -288,7 +288,7 @@ void inter_party_sql_final(void)
 struct party_data* search_partyname(char* str)
 {
 	char esc_name[NAME_LENGTH*2+1];
-	char* data;
+	char* data = nullptr;
 	struct party_data* p = NULL;
 
 	Sql_EscapeStringLen(sql_handle, esc_name, str, safestrnlen(str, NAME_LENGTH));
@@ -842,7 +842,7 @@ int inter_party_CharOnline(uint32 char_id, int party_id)
 
 	if( party_id == -1 )
 	{// Get party_id from the database
-		char* data;
+		char* data = nullptr;
 
 		if( SQL_ERROR == Sql_Query(sql_handle, "SELECT party_id FROM `%s` WHERE char_id='%d'", schema_config.char_db, char_id) )
 		{
@@ -888,7 +888,7 @@ int inter_party_CharOffline(uint32 char_id, int party_id) {
 
 	if( party_id == -1 )
 	{// Get guild_id from the database
-		char* data;
+		char* data = nullptr;
 
 		if( SQL_ERROR == Sql_Query(sql_handle, "SELECT party_id FROM `%s` WHERE char_id='%d'", schema_config.char_db, char_id) )
 		{
