@@ -3400,7 +3400,7 @@ int mob_warpslave_sub(struct block_list *bl,va_list ap)
 {
 	struct mob_data *md=(struct mob_data *)bl;
 	struct block_list *master;
-	short x,y,range=0;
+	short x,y = 0,range=0;
 	master = va_arg(ap, struct block_list*);
 	range = va_arg(ap, int);
 
@@ -4423,8 +4423,8 @@ static int mob_read_sqldb(void)
 			lines++;
 			for(i = 0, p = line; i < 31+2*MAX_MVP_DROP+2*MAX_MOB_DROP; i++)
 			{
-				char* data;
-				size_t len;
+				char* data = nullptr;
+				size_t len = 0;
 				Sql_GetData(mmysql_handle, i, &data, &len);
 
 				strcpy(p, data);
