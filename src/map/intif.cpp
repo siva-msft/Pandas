@@ -2735,7 +2735,7 @@ int intif_Auction_register(struct auction_data *auction)
 static void intif_parse_Auction_register(int fd)
 {
 	struct map_session_data *sd;
-	struct auction_data auction;
+	struct auction_data auction = {};
 
 	if( RFIFOW(fd,2) - 4 != sizeof(struct auction_data) )
 	{
