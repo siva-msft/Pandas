@@ -1248,7 +1248,7 @@ bool itemdb_parse_roulette_db(void)
 		int k, limit = MAX_ROULETTE_COLUMNS - i;
 
 		for (k = 0; k < limit && SQL_SUCCESS == Sql_NextRow(mmysql_handle); k++) {
-			char* data;
+			char* data = nullptr;
 			unsigned short item_id, amount;
 			int level, flag;
 
