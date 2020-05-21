@@ -150,8 +150,8 @@ bool mapif_homunculus_save(struct s_homunculus* hd)
 // Load an homunculus
 bool mapif_homunculus_load(int homun_id, struct s_homunculus* hd)
 {
-	char* data;
-	size_t len;
+	char* data = nullptr;
+	size_t len = 0;
 
 	memset(hd, 0, sizeof(*hd));
 
