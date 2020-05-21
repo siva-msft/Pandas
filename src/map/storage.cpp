@@ -727,7 +727,7 @@ enum e_guild_storage_log storage_guild_log_read_sub( struct map_session_data* sd
 		return GUILDSTORAGE_LOG_FAILED;
 	}
 
-	struct guild_log_entry entry;
+	struct guild_log_entry entry = 0;
 
 	// General data
 	SqlStmt_BindColumn(stmt, 0, SQLDT_UINT,      &entry.id,               0, NULL, NULL);
