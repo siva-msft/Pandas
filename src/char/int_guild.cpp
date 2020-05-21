@@ -336,8 +336,8 @@ int inter_guild_tosql(struct guild *g,int flag)
 struct guild * inter_guild_fromsql(int guild_id)
 {
 	struct guild *g;
-	char* data;
-	size_t len;
+	char* data = nullptr;
+	size_t len = 0;
 	char* p;
 	int i;
 
@@ -586,7 +586,7 @@ int inter_guildcastle_tosql(struct guild_castle *gc)
 // Read guild_castle from SQL
 struct guild_castle* inter_guildcastle_fromsql(int castle_id)
 {
-	char *data;
+	char *data = nullptr;
 	int i;
 	StringBuf buf;
 	struct guild_castle *gc = (struct guild_castle *)idb_get(castle_db, castle_id);
@@ -665,7 +665,7 @@ int inter_guild_CharOnline(uint32 char_id, int guild_id)
 
 		if( SQL_SUCCESS == Sql_NextRow(sql_handle) )
 		{
-			char* data;
+			char* data = nullptr;
 
 			Sql_GetData(sql_handle, 0, &data, NULL);
 			guild_id = atoi(data);
@@ -716,7 +716,7 @@ int inter_guild_CharOffline(uint32 char_id, int guild_id)
 
 		if( SQL_SUCCESS == Sql_NextRow(sql_handle) )
 		{
-			char* data;
+			char* data = nullptr;
 
 			Sql_GetData(sql_handle, 0, &data, NULL);
 			guild_id = atoi(data);
@@ -810,7 +810,7 @@ int search_guildname(char *str)
 
 	if( SQL_SUCCESS == Sql_NextRow(sql_handle) )
 	{
-		char* data;
+		char* data = nullptr;
 
 		Sql_GetData(sql_handle, 0, &data, NULL);
 		guild_id = atoi(data);
