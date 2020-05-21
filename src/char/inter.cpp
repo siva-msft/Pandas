@@ -449,7 +449,7 @@ void mapif_parse_accinfo(int fd) {
 	char type= RFIFOB(fd,14);
 	char query[NAME_LENGTH], query_esq[NAME_LENGTH*2+1];
 	uint32 account_id = 0;
-	char *data;
+	char *data = nullptr;
 
 	safestrncpy(query, RFIFOCP(fd,15), NAME_LENGTH);
 	Sql_EscapeString(sql_handle, query_esq, query);
@@ -543,7 +543,7 @@ void mapif_accinfo_ack(bool success, int map_fd, int u_fd, int u_aid, int accoun
 			uint32 char_id, class_;
 			short char_num, base_level, job_level, online;
 			char name[NAME_LENGTH];
-			char *data;
+			char *data = nullptr;
 
 			Sql_GetData(sql_handle, 0, &data, NULL); char_id = atoi(data);
 			Sql_GetData(sql_handle, 1, &data, NULL); safestrncpy(name, data, sizeof(name));
@@ -622,7 +622,7 @@ void inter_savereg(uint32 account_id, uint32 char_id, const char *key, uint32 in
 // Load account_reg from sql (type=2)
 int inter_accreg_fromsql(uint32 account_id, uint32 char_id, int fd, int type)
 {
-	char* data;
+	char* data = nullptr;
 	size_t len;
 	unsigned int plen = 0;
 
@@ -1177,8 +1177,8 @@ int mapif_parse_WisRequest(int fd)
 	struct WisData* wd;
 	char name[NAME_LENGTH];
 	char esc_name[NAME_LENGTH*2+1];// escaped name
-	char* data;
-	size_t len;
+	char* data = nullptr;
+	size_t len = 0;
 	int headersize = 8+2*NAME_LENGTH;
 
 
