@@ -189,7 +189,7 @@ void auction_delete(struct auction_data *auction)
 void inter_auctions_fromsql(void)
 {
 	int i;
-	char *data;
+	char *data = nullptr;
 	StringBuf buf;
 	t_tick tick = gettick(), endtick;
 	time_t now = time(NULL);
