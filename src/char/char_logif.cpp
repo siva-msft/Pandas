@@ -485,7 +485,7 @@ int chlogif_parse_ackchangecharsex(int char_id, int sex)
 {
 	int class_ = 0, guild_id = 0, account_id = 0;
 	unsigned char buf[7];
-	char *data;
+	char *data = nullptr;
 
 	// get character data
 	if (SQL_ERROR == Sql_Query(sql_handle, "SELECT `account_id`,`class`,`guild_id` FROM `%s` WHERE `char_id` = '%d'", schema_config.char_db, char_id)) {
