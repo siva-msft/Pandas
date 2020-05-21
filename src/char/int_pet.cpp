@@ -61,8 +61,8 @@ int inter_pet_tosql(int pet_id, struct s_pet* p)
 
 int inter_pet_fromsql(int pet_id, struct s_pet* p)
 {
-	char* data;
-	size_t len;
+	char* data = nullptr;
+	size_t len = 0;
 
 #ifdef NOISY
 	ShowInfo("Loading pet (%d)...\n",pet_id);
