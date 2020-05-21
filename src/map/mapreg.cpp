@@ -188,9 +188,9 @@ static void script_load_mapreg(void)
 	                                */
 	SqlStmt* stmt = SqlStmt_Malloc(mmysql_handle);
 	char varname[32+1];
-	uint32 index;
+	uint32 index = 0;
 	char value[255+1];
-	uint32 length;
+	uint32 length = 0;
 
 	if ( SQL_ERROR == SqlStmt_Prepare(stmt, "SELECT `varname`, `index`, `value` FROM `%s`", mapreg_table)
 	  || SQL_ERROR == SqlStmt_Execute(stmt)
