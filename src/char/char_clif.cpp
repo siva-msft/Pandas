@@ -487,7 +487,7 @@ int chclif_parse_char_delete2_req(int fd, struct char_session_data* sd) {
 	FIFOSD_CHECK(6)
 	{
 		uint32 char_id, i, guild_id, party_id;
-		char* data;
+		char* data = nullptr;
 		time_t delete_date;
 
 		char_id = RFIFOL(fd,2);
