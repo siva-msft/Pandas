@@ -23,7 +23,7 @@ void mapif_Mail_delete(int fd, uint32 char_id, int mail_id, bool deleted);
 int mail_fromsql(uint32 char_id, struct mail_data* md)
 {
 	int i;
-	char *data;
+	char *data = nullptr;
 
 	memset(md, 0, sizeof(struct mail_data));
 	md->amount = 0;
@@ -153,7 +153,7 @@ bool mail_loadmessage(int mail_id, struct mail_message* msg)
 {
 	int i, j;
 	StringBuf buf;
-	char* data;
+	char* data = nullptr;
 
 	if( SQL_ERROR == Sql_Query(sql_handle, "SELECT `id`,`send_name`,`send_id`,`dest_name`,`dest_id`,`title`,`message`,`time`,`status`,`zeny`,`type` FROM `%s` WHERE `id` = '%d'", schema_config.mail_db, mail_id )
 	||  SQL_SUCCESS != Sql_NextRow(sql_handle) ){
@@ -241,7 +241,7 @@ int mail_timer_sub( int limit, enum mail_inbox_type type ){
 		int account_id;
 	}mails[MAIL_MAX_INBOX];
 	int i, map_fd;
-	char* data;
+	char* data = nullptr;
 	struct online_char_data* character;
 
 	if( limit <= 0 ){
@@ -544,8 +544,8 @@ void mapif_parse_Mail_send(int fd)
 {
 	struct mail_message msg;
 	char esc_name[NAME_LENGTH*2+1];
-	char *data;
-	size_t len;
+	char *data = nullptr;
+	size_t len = 0;
 
 	if(RFIFOW(fd,2) != 8 + sizeof(struct mail_message))
 		return;
@@ -656,7 +656,7 @@ void mapif_parse_Mail_receiver_check( int fd ){
 	if( SQL_ERROR == Sql_Query( sql_handle, "SELECT `char_id`,`class`,`base_level` FROM `%s` WHERE `name` = '%s'", schema_config.char_db, esc_name ) ){
 		Sql_ShowDebug(sql_handle);
 	}else if( SQL_SUCCESS == Sql_NextRow(sql_handle) ){
-		char *data;
+		char *data = nullptr;
 
 		Sql_GetData(sql_handle, 0, &data, NULL); char_id = atoi(data);
 		Sql_GetData(sql_handle, 1, &data, NULL); class_ = atoi(data);
