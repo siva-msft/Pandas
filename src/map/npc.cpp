@@ -3895,7 +3895,7 @@ static void npc_market_fromsql(void) {
 	}
 
 	while (SQL_SUCCESS == Sql_NextRow(mmysql_handle)) {
-		char *data;
+		char *data = nullptr;
 		struct s_npc_market *market;
 		struct npc_item_list list;
 
