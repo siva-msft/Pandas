@@ -65,7 +65,7 @@ unsigned long loginlog_failedattempts(uint32 ip, unsigned int minutes) {
 
 	if( SQL_SUCCESS == Sql_NextRow(sql_handle) )
 	{
-		char* data;
+		char* data = nullptr;
 		Sql_GetData(sql_handle, 0, &data, NULL);
 		failures = strtoul(data, NULL, 10);
 		Sql_FreeResult(sql_handle);
