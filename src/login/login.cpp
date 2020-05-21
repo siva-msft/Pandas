@@ -691,7 +691,7 @@ bool login_config_read(const char* cfgName, bool normal) {
 					int i;
 					for (i = 0; i < 32; i += 2) {
 						char buf[3];
-						unsigned int byte;
+						unsigned int byte = 0;
 
 						memcpy(buf, &md5[i], 2);
 						buf[2] = 0;
