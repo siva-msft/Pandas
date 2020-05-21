@@ -583,8 +583,8 @@ void do_init_vending_autotrade(void)
 
 			// Init each autotrader data
 			while (SQL_SUCCESS == Sql_NextRow(mmysql_handle)) {
-				size_t len;
-				char* data;
+				size_t len = 0;
+				char* data = nullptr;
 
 				at = NULL;
 				CREATE(at, struct s_autotrader, 1);
@@ -646,7 +646,7 @@ void do_init_vending_autotrade(void)
 				//Add the item into list
 				j = 0;
 				while (SQL_SUCCESS == Sql_NextRow(mmysql_handle) && j < at->count) {
-					char *data;
+					char *data = nullptr;
 					CREATE(at->entries[j], struct s_autotrade_entry, 1);
 					Sql_GetData(mmysql_handle, 0, &data, NULL); at->entries[j]->cartinventory_id = atoi(data);
 					Sql_GetData(mmysql_handle, 1, &data, NULL); at->entries[j]->amount = atoi(data);
