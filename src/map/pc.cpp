@@ -12220,7 +12220,7 @@ static bool pc_readdb_job_basehpsp(char* fields[], int columns, int current)
 */
 static bool pc_readdb_job_param(char* fields[], int columns, int current)
 {
-	int64 class_tmp;
+	int64 class_tmp = 0;
 	int idx, class_;
 	uint16 str, agi, vit, int_, dex, luk;
 
