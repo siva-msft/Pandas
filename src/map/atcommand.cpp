@@ -2178,7 +2178,7 @@ ACMD_FUNC(monster)
 	int number = 0;
 	int count;
 	int i, range;
-	short mx, my;
+	short mx, my = 0;
 	unsigned int size;
 	nullpo_retr(-1, sd);
 
