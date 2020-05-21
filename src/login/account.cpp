@@ -298,8 +298,8 @@ static bool account_db_sql_create(AccountDB* self, struct mmo_account* acc) {
 	}
 	else
 	{// ask the database
-		char* data;
-		size_t len;
+		char* data = nullptr;
+		size_t len = 0;
 
 		if( SQL_SUCCESS != Sql_Query(sql_handle, "SELECT MAX(`account_id`)+1 FROM `%s`", db->account_db) )
 		{
@@ -394,7 +394,7 @@ static bool account_db_sql_load_str(AccountDB* self, struct mmo_account* acc, co
 	Sql* sql_handle = db->accounts;
 	char esc_userid[2*NAME_LENGTH+1];
 	uint32 account_id;
-	char* data;
+	char* data = nullptr;
 
 	Sql_EscapeString(sql_handle, esc_userid, userid);
 
@@ -500,7 +500,7 @@ static bool account_db_sql_iter_next(AccountDBIterator* self, struct mmo_account
  */
 static bool mmo_auth_fromsql(AccountDB_SQL* db, struct mmo_account* acc, uint32 account_id) {
 	Sql* sql_handle = db->accounts;
-	char* data;
+	char* data = nullptr;
 
 	// retrieve login entry for the specified account
 	if( SQL_ERROR == Sql_Query(sql_handle,
@@ -702,7 +702,7 @@ void mmo_save_global_accreg(AccountDB* self, int fd, uint32 account_id, uint32 c
 void mmo_send_global_accreg(AccountDB* self, int fd, uint32 account_id, uint32 char_id) {
 	Sql* sql_handle = ((AccountDB_SQL*)self)->accounts;
 	AccountDB_SQL* db = (AccountDB_SQL*)self;
-	char* data;
+	char* data = nullptr;
 	int plen = 0;
 	size_t len;
 
