@@ -4251,7 +4251,7 @@ static TIMER_FUNC(skill_timerskill){
 					break;
 				case RG_INTIMIDATE:
 					if (unit_warp(src,-1,-1,-1,CLR_TELEPORT) == 0) {
-						short x,y;
+						short x,y = 0;
 						map_search_freecell(src, 0, &x, &y, 1, 1, 0);
 						if (target != src && !status_isdead(target))
 							unit_warp(target, -1, x, y, CLR_TELEPORT);
@@ -5585,7 +5585,7 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 	case NJ_KIRIKAGE:
 		if( !map_flag_gvg2(src->m) && !map_getmapflag(src->m, MF_BATTLEGROUND) )
 		{	//You don't move on GVG grounds.
-			short x, y;
+			short x, y = 0;
 			map_search_freecell(bl, 0, &x, &y, 1, 1, 0);
 			if (unit_movepos(src, x, y, 0, 0)) {
 				clif_blown(src);
