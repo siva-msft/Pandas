@@ -292,7 +292,7 @@ int chmapif_parse_askscdata(int fd){
 		{
 			struct status_change_data scdata;
 			int count;
-			char* data;
+			char* data = nullptr;
 
 			WFIFOHEAD(fd,14+50*sizeof(struct status_change_data));
 			WFIFOW(fd,0) = 0x2b1d;
@@ -545,7 +545,7 @@ int chmapif_parse_req_skillcooldown(int fd){
 		if( Sql_NumRows(sql_handle) > 0 )
 		{
 			int count;
-			char* data;
+			char* data = nullptr;
 			struct skill_cooldown_data scd;
 
 			WFIFOHEAD(fd,14 + MAX_SKILLCOOLDOWN * sizeof(struct skill_cooldown_data));
@@ -757,7 +757,7 @@ int chmapif_parse_fwlog_changestatus(int fd){
 		} else {
 			int t_aid; // target account id
 			int t_cid; // target char id
-			char* data;
+			char* data = nullptr;
 
 			Sql_GetData(sql_handle, 0, &data, NULL); t_aid = atoi(data);
 			Sql_GetData(sql_handle, 1, &data, NULL); t_cid = atoi(data);
@@ -1190,7 +1190,7 @@ int chmapif_parse_reqcharban(int fd){
 			return 1;
 		} else {
 			int t_cid=0,t_aid=0;
-			char* data;
+			char* data = nullptr;
 			time_t unban_time;
 			time_t now = time(NULL);
 			SqlStmt* stmt = SqlStmt_Malloc(sql_handle);
