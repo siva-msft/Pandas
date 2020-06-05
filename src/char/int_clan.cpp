@@ -31,8 +31,8 @@ int inter_clan_removemember_tosql(uint32 account_id, uint32 char_id){
 
 struct clan* inter_clan_fromsql(int clan_id){
 	struct clan* clan;
-	char* data;
-	size_t len;
+	char* data = nullptr;
+	size_t len = 0;
 	int i;
 
 	if( clan_id <= 0 )
@@ -203,7 +203,7 @@ int inter_clan_parse_frommap( int fd ){
 
 // Initialize clan sql
 int inter_clan_init(void){
-	char* data;
+	char* data = nullptr;
 	int* clan_ids;
 	int amount;
 
