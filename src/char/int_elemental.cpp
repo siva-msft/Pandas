@@ -43,7 +43,7 @@ bool mapif_elemental_save(struct s_elemental* ele) {
 }
 
 bool mapif_elemental_load(int ele_id, uint32 char_id, struct s_elemental *ele) {
-	char* data;
+	char* data = nullptr;
 
 	memset(ele, 0, sizeof(struct s_elemental));
 	ele->elemental_id = ele_id;
