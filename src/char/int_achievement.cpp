@@ -28,7 +28,7 @@
 struct achievement *mapif_achievements_fromsql(uint32 char_id, int *count)
 {
 	struct achievement *achievelog = NULL;
-	struct achievement tmp_achieve;
+	struct achievement tmp_achieve = 0;
 	SqlStmt *stmt;
 	StringBuf buf;
 	int i;
