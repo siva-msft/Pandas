@@ -531,7 +531,7 @@ int char_memitemdata_to_sql(const struct item items[], int max, int id, enum sto
 	SqlStmt* stmt;
 	int i, j, offset = 0, errors = 0;
 	const char *tablename, *selectoption, *printname;
-	struct item item; // temp storage variable
+	struct item item = 0; // temp storage variable
 	bool* flag; // bit array for inventory matching
 	bool found;
 
@@ -744,7 +744,7 @@ bool char_memitemdata_from_sql(struct s_storage* p, int max, int id, enum storag
 	StringBuf buf;
 	SqlStmt* stmt;
 	int i,j, offset = 0, max2;
-	struct item item, *storage;
+	struct item item = 0, *storage;
 	const char *tablename, *selectoption, *printname;
 
 	switch (tableswitch) {
@@ -1549,8 +1549,8 @@ enum e_char_del_response char_delete(struct char_session_data* sd, uint32 char_i
 	uint32 account_id;
 	int party_id, guild_id, hom_id, base_level, partner_id, father_id, mother_id, elemental_id;
 	time_t delete_date;
-	char *data;
-	size_t len;
+	char *data = nullptr;
+	size_t len = 0;
 	int i;
 
 	ARR_FIND(0, MAX_CHARS, i, sd->found_char[i] == char_id);
@@ -1888,7 +1888,7 @@ int char_married(int pl1, int pl2)
 		Sql_ShowDebug(sql_handle);
 	else if( SQL_SUCCESS == Sql_NextRow(sql_handle) )
 	{
-		char* data;
+		char* data = nullptr;
 
 		Sql_GetData(sql_handle, 0, &data, NULL);
 		if( pl2 == atoi(data) )
@@ -1909,7 +1909,7 @@ int char_child(int parent_id, int child_id)
 		Sql_ShowDebug(sql_handle);
 	else if( SQL_SUCCESS == Sql_NextRow(sql_handle) )
 	{
-		char* data;
+		char* data = nullptr;
 
 		Sql_GetData(sql_handle, 0, &data, NULL);
 		if( child_id == atoi(data) )
@@ -1933,7 +1933,7 @@ int char_family(int cid1, int cid2, int cid3)
 		int charid;
 		int partnerid;
 		int childid;
-		char* data;
+		char* data = nullptr;
 
 		Sql_GetData(sql_handle, 0, &data, NULL); charid = atoi(data);
 		Sql_GetData(sql_handle, 1, &data, NULL); partnerid = atoi(data);
@@ -2019,8 +2019,8 @@ void char_auth_ok(int fd, struct char_session_data *sd) {
 void char_read_fame_list(void)
 {
 	int i;
-	char* data;
-	size_t len;
+	char* data = nullptr;
+	size_t len = 0;
 
 	// Empty ranking lists
 	memset(smith_fame_list, 0, sizeof(smith_fame_list));
@@ -2077,8 +2077,8 @@ void char_read_fame_list(void)
 //Loads a character's name and stores it in the buffer given (must be NAME_LENGTH in size)
 //Returns 1 on found, 0 on not found (buffer is filled with Unknown char name)
 int char_loadName(uint32 char_id, char* name){
-	char* data;
-	size_t len;
+	char* data = nullptr;
+	size_t len = 0;
 
 	if( SQL_ERROR == Sql_Query(sql_handle, "SELECT `name` FROM `%s` WHERE `char_id`='%d'", schema_config.char_db, char_id) )
 		Sql_ShowDebug(sql_handle);
