@@ -1,5 +1,4 @@
-5/20 233p
-
+4/6 5p
 # 熊猫模拟器
 [![Build Status](https://travis-ci.org/PandasWS/Pandas.svg?branch=master)](https://travis-ci.org/PandasWS/Pandas) [![Build status](https://ci.appveyor.com/api/projects/status/github/PandasWS/Pandas?branch=master&svg=true)](https://ci.appveyor.com/project/CairoLee/Pandas/branch/master) [![Total alerts](https://img.shields.io/lgtm/alerts/g/PandasWS/Pandas.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PandasWS/Pandas/alerts/) [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/PandasWS/Pandas.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PandasWS/Pandas/context:cpp) [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/PandasWS/Pandas.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PandasWS/Pandas/context:python) ![GitHub](https://img.shields.io/github/license/PandasWS/Pandas.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/PandasWS/Pandas.svg)
 > Pandas (熊猫模拟器) 是一个开源的多人协作的软件开发项目. 致力构建符合中文用户习惯的大型多人在线角色扮演游戏服务端. 该程序使用 C++ 编写, 遵循 C++11 标准. 程序的灵活性非常强大, 可以对 NPC, 传送点等一系列内容进行修改. 该项目由全球各地的志愿者小组, 以及提供质量检查和支持的庞大社区共同管理. Pandas 基于 rAthena 构建, 而 rAthena 是 eAthena 项目的延续.
