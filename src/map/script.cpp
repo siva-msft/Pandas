@@ -21541,7 +21541,7 @@ BUILDIN_FUNC(ismounting) {
  * - Will unmount the player is he is already mounting
  **/
 BUILDIN_FUNC(setmounting) {
-	TBL_PC* sd;
+	TBL_PC* sd = {};
 	
 	if (!script_charid2sd(2,sd))
 		return SCRIPT_CMD_FAILURE;
@@ -22041,7 +22041,7 @@ BUILDIN_FUNC(consumeitem)
  */
 BUILDIN_FUNC(sit)
 {
-	TBL_PC *sd;
+	TBL_PC *sd = {};
 
 	if( !script_nick2sd(2,sd) )
 		return SCRIPT_CMD_FAILURE;
@@ -22397,7 +22397,7 @@ BUILDIN_FUNC(vip_time) {
  * @author: malufett
  */
 BUILDIN_FUNC(montransform) {
-	TBL_PC *sd;
+	TBL_PC *sd = {};
 	enum sc_type type;
 	int tick, mob_id, val1, val2, val3, val4;
 	val1 = val2 = val3 = val4 = 0;
@@ -24800,7 +24800,7 @@ BUILDIN_FUNC(open_roulette){
  *	false: returns the count of unidentified items only
  *------------------------------------------*/
 BUILDIN_FUNC(identifyall) {
-	TBL_PC *sd;
+	TBL_PC *sd = nullptr;
 	bool identify_item = true;
 
 	if (script_hasdata(st, 2))
